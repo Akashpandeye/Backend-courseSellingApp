@@ -1,37 +1,16 @@
 const express = require("express");
 const app = express()
-
-app.post("/user/signup", function (req, res) {
-    res.json({
-        message: "user created successfully"
-    })
-})
-
-app.post("/user/signin", function (req, res) {
-    res.json({
-        message: "user signed in successfully"
-    })
-})
-
-app.get("/user/purchases", function (req, res) {
-    res.json({
-        message: "purchase added successfully"
-    })
-})
-
-app.get("/course", function (req, res) {
-    res.json({
-        message: "courses fetched successfully"
-    })
-})
-
-app.post("/course/purchase", function (req, res) {
-    res.json({
-        message: "purchase added successfully"
-    })
-})
+const router = express.Router();
+const userRouter = require("./routes/user");
+const courseRouter = require("./routes/course");
 
 
+
+
+app.use(express.json());
+
+app.use("/user", userRouter)
+app.use("/course", courseRouter)
 
 
 app.listen(3000, () => {
