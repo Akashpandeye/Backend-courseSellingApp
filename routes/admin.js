@@ -1,5 +1,8 @@
 const express = require("express");
 const adminRouter = express.Router();
+// const { adminMiddleware } = require("../middleware/admin");
+const { userModel, adminModel, courseModel, purchaseModel } = require("../db/db");
+
 
 adminRouter.post("/signup", function (req, res) {
     res.json({
@@ -13,7 +16,7 @@ adminRouter.post("/signin", function (req, res) {
     })
 })
 
-adminRouter.use(adminMiddleware)
+// adminRouter.use(adminMiddleware)
 
 adminRouter.post("/courses", function (req, res) {
     res.json({

@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://akash_db_user:[EMAIL_ADDRESS]/?appName=Cluster0")
+const dotenv = require("dotenv");
+dotenv.config();
+mongoose.connect(process.env.MONGODB_URI)
+console.log("connected to db")
 const objectId = mongoose.Types.ObjectId;
 const Schema = mongoose.Schema;
 
